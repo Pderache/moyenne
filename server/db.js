@@ -2,7 +2,8 @@ const Database = require('better-sqlite3');
 const path = require('path');
 const bcrypt = require('bcryptjs');
 
-const dbPath = path.join(__dirname, 'database.sqlite');
+// Utilise la variable d'env DB_PATH si elle existe, sinon database.sqlite dans le dossier actuel
+const dbPath = process.env.DB_PATH || path.join(__dirname, 'database.sqlite');
 const db = new Database(dbPath);
 
 // Initialize DB
